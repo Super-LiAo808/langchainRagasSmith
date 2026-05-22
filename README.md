@@ -2,7 +2,7 @@
 
 在 **LangChain 1.x** 与 **ragas 0.2.x** 下，完成：网页 RAG → `RetrievalQA` → RAGAS 四维指标 → LangSmith 追踪与数据集批量评估。
 
-> 旧版 `RagasEvaluatorChain` 在 LC1 下不可用，本项目用 `RagasMetricRunEvaluator` 对接 `run_on_dataset`。
+> 本项目用 `RagasMetricRunEvaluator` 对接 `run_on_dataset`。
 
 ## 项目结构
 
@@ -102,6 +102,23 @@ flowchart LR
 - 修改评估问题：编辑 `rag_eval/config/cases.py` 或参考 `data/eval_cases.example.json`
 - 更换文档源：改 `DEFAULT_DOC_URL` 或 `run_single_evaluation(doc_url=...)`
 - 新增指标：在 `evaluation/ragas_metrics.py` 的 `build_ragas_evaluators` 中追加
+
+## 发布到 GitHub
+
+仓库地址（需先在网页创建空仓库）：
+
+**https://github.com/Super-LiAo808/langchainRagasSmith**
+
+1. 打开 [New repository](https://github.com/new)，Owner 选 `Super-LiAo808`，名称填 `langchainRagasSmith`，**不要**勾选 “Add a README”。
+2. 在项目根目录执行：
+
+```powershell
+git push -u origin main
+# 或
+.\scripts\push_github.ps1
+```
+
+> `.env` 已在 `.gitignore` 中，不会上传密钥；仅提交 `.env.example`。
 
 ## 常见问题
 
