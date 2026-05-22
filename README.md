@@ -90,38 +90,3 @@ flowchart LR
   C --> G[run_on_dataset]
   G --> D
 ```
-
-| 教程写法 | 本项目 |
-|----------|--------|
-| `RagasEvaluatorChain` | `RagasMetricRunEvaluator` |
-| `context_relevancy` | `context_precision` |
-| 根目录单文件 | `rag_eval` 包 + `cli` |
-
-## 扩展
-
-- 修改评估问题：编辑 `rag_eval/config/cases.py` 或参考 `data/eval_cases.example.json`
-- 更换文档源：改 `DEFAULT_DOC_URL` 或 `run_single_evaluation(doc_url=...)`
-- 新增指标：在 `evaluation/ragas_metrics.py` 的 `build_ragas_evaluators` 中追加
-
-## 发布到 GitHub
-
-仓库地址（需先在网页创建空仓库）：
-
-**https://github.com/Super-LiAo808/langchainRagasSmith**
-
-1. 打开 [New repository](https://github.com/new)，Owner 选 `Super-LiAo808`，名称填 `langchainRagasSmith`，**不要**勾选 “Add a README”。
-2. 在项目根目录执行：
-
-```powershell
-git push -u origin main
-# 或
-.\scripts\push_github.ps1
-```
-
-> `.env` 已在 `.gitignore` 中，不会上传密钥；仅提交 `.env.example`。
-
-## 常见问题
-
-1. **LangSmith 无 trace**：确认 `.env` 中 `LANGCHAIN_TRACING_V2=true` 且 Key 有效，先跑 `rag-eval smoke`。
-2. **401 数据集**：检查 `LANGCHAIN_API_KEY` 是否为 LangSmith 控制台密钥。
-3. **百度百科抓取失败**：在 `pipeline.py` 将 `verify_ssl` 设为 `True` 或更换 URL。
