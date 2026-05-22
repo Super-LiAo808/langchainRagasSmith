@@ -1,0 +1,14 @@
+{
+  "document_url": "https://baike.baidu.com/item/%E7%BA%BD%E7%BA%A6/6230",
+  "verify_ssl": false,
+  "dataset_name": "ragas test data",
+  "dataset_description": "NYC test dataset",
+  "cases": [
+    {
+      "query": "纽约市的名字是怎么得来的?",
+      "ground_truths": [
+        "纽约市的名字“纽约”来源于荷兰战败后将新阿姆斯特丹割让给英国的事件。"
+      ]
+    }
+  ]
+}
